@@ -1,19 +1,22 @@
 let pokemonList = [
   {name:  "Eevee",
   height: 0.3,
-  type: "normal"},
+  type: ["Normal"] },
 
   {name:  "Charmander",
   height: 0.6,
-  type: "fire"},
+  type: ["Fire"] },
 
   {name:  "Squirtle",
   height: 0.5,
-  type: "water"}
+  type: ["Water"] }
 ];
 
 for (let i = 0; i < pokemonList.length; i++) {
-  document.write(pokemonList[i].name + ('Height:') + pokemonList[i].height + ('Type:') + pokemonList[i].type);
+  document.write('<br>' + pokemonList[i].name + " " +
+  ('Height:') + pokemonList[i].height + " " +
+  ('Type:') + pokemonList[i].type + '</br>');
+
  if (pokemonList[i].height > 0.5) {
   document.write('Wow, thats big!');
 }
