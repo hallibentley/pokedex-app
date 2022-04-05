@@ -23,15 +23,21 @@ let pokemonRepository = (function (){
   }
 
   return {
-    getAll: getAll
+    getAll: getAll,
     add: add
   }
 
 })();
 
-pokemonRepository.forEach (function(pokemon)) {
-  document.write (pokemonList.getAll);
-};
+pokemonRepository.getAll().forEach (function (pokemon)) {
+  document.write('<br>' + pokemon.name + pokemon.height + pokemon.type + '</br>');
+})
+
+
+
+//pokemonRepository.forEach (function(pokemon)) {
+  //document.write (pokemonList.getAll);
+//};
 
 
 /*
