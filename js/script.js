@@ -12,13 +12,18 @@ let pokemonList = [
   type: ["Water"] }
 ];
 
-for (let i = 0; i < pokemonList.length; i++) {
+/*for (let i = 0; i < pokemonList.length; i++) {
   document.write('<br>' + pokemonList[i].name + " " +
   ('Height:') + pokemonList[i].height + " " +
   ('Type:') + pokemonList[i].type + '</br>');
+*/
 
- if (pokemonList[i].height > 0.5) {
+pokemonList.forEach (function(pokemon) {
+  document.write('<br>' + pokemon.name + pokemon.height + pokemon.type + '</br>');
+});
+
+
+/* if (pokemonList[i].height > 0.5) {
   document.write('Wow, thats big!');
-}
-}
-.
+};
+*/
