@@ -2,12 +2,12 @@ let pokemonRepository = (function (){
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-  function getAll () {
-    return pokemonList;
-  }
-
   function add (pokemon) {
     pokemonList.push(pokemon);
+  }
+
+  function getAll () {
+    return pokemonList;
   }
 
   function addListItem(pokemon) {
@@ -21,11 +21,7 @@ let pokemonRepository = (function (){
     });
     listItem.appendChild(button);
     pokemonList.appendChild(listItem);
-  }
-
-function showDetails(pokemon) {
-  console.log(pokemon);
-}
+  };
 
 function loadList() {
     return fetch(apiUrl).then(function (response) {
@@ -57,10 +53,16 @@ function loadList() {
      });
    }
 
+   function showDetails(pokemon) {
+     loadDetails(pokemon).then(function () {
+     console.log(pokemon);
+     });
+   }
+
   return {
     getAll: getAll,
     add: add,
-    loadList: loadlist,
+    loadList: loadList,
     loadDetails: loadDetails
   };
 })();
