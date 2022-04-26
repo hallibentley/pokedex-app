@@ -121,9 +121,10 @@ function loadList() {
     add: add,
     loadList: loadList,
     loadDetails: loadDetails,
-    addListItem : addListItem,
+    addListItem : addListItem
     showDetails : showDetails
   };
+
 })();
 
 pokemonRepository.loadList().then(function() {
