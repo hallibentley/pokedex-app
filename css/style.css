@@ -1,5 +1,14 @@
 .new-button {
   color: pink;
-  font-style: italic;
   background-color: black;
+}
+
+#modal-container {
+  display: none;
+}
+
+#modal-container.is-visible {
+  background-color: pink;
+  padding: 15px;
+  text-align: center;
 }
