@@ -122,12 +122,15 @@ let pokemonRepository = (function (){
 //////////////////////////////////////////////////////////////////////////////
 
   return {
-    getAll: getAll,
+
     add: add,
+    getAll: getAll,
+    addListItem : addListItem,
     loadList: loadList,
     loadDetails: loadDetails,
-    addListItem : addListItem,
-    showDetails : showDetails
+    showDetails : showDetails,
+    showModal : showModal,
+    hideModal : hideModal
   };
 
 // closing the IIFE //
