@@ -70,7 +70,7 @@ let pokemonRepository = (function (){
 ////////////////////////////////////////////////////////////////////////////
 
 
-   function showModal(title, text) {
+   function showModal(pokemon) {
      modalContainer.innerHTML = '';
    // create div with a class called modal //
      let modal = document.createElement('div');
@@ -81,16 +81,34 @@ let pokemonRepository = (function (){
      closeButtonElement.innerText = 'Close';
    // listen for the click of the close button, then execute hideModal function //
      closeButtonElement.addEventListener('click', hideModal);
-   // create the title element of h1 with the text "title" //
+  // create the title element of h1 with the pokemon name //
      let titleElement = document.createElement('h1');
-     titleElement.innerText = title;
-   // create paragraph element with the text "text" //
-     let contentElement = document.createElement('p');
-     contentElement.innerText = text;
+     titleElement.innerText = pokemon.name;
+   // create paragraph element(s) with the pokemon height and types //
+     let heightElement = document.createElement('p');
+     heightElement.innerText = ('Height:' + " " + pokemon.height);
+     let typeElement = document.createElement('p');
+     typeElement.innerText = ('Types:');
+
+     pokemon.types.forEach((type, numberOfTypes) => {
+ 			numberOfTypes = pokemon.types;
+
+ 			if (numberOfTypes === 1) {
+ 				typeElement.innerText += type.type.name;
+ 			} else {
+ 				typeElement.innerText += type.type.name + ' ';
+ 			}
+ 		});
+
+    let imageElement = document.createElement('img');
+    imageElement.classList.add('modal-image');
+    imageElement.src = pokemon.imageUrl;
 
      modal.appendChild(closeButtonElement);
      modal.appendChild(titleElement);
-     modal.appendChild(contentElement);
+     modal.appendChild(heightElement);
+     modal.appendChild(typeElement);
+     modal.appendChild(imageElement);
      modalContainer.appendChild(modal);
 
    // add the class is-visible to modalContainer variable //
@@ -116,9 +134,10 @@ let pokemonRepository = (function (){
     }
   });
 
-  document.querySelector('#show-modal').addEventListener('click', () => {
-    showModal('Modal title', 'This is the modal content!');
-  });
+
+  // document.querySelector('#show-modal').addEventListener('click', () => {
+  //   showModal('Modal title', 'This is the modal content!');
+  // });
 
 //////////////////////////////////////////////////////////////////////////////
 
