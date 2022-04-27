@@ -63,27 +63,28 @@ let pokemonRepository = (function (){
 
    function showDetails(pokemon) {
      pokemonRepository.loadDetails(pokemon).then(function () {
-     console.log(pokemon);
+     showModal(pokemon);
      });
    }
 
 ////////////////////////////////////////////////////////////////////////////
 
+
    function showModal(title, text) {
      modalContainer.innerHTML = '';
-// create div with a class called modal //
+   // create div with a class called modal //
      let modal = document.createElement('div');
      modal.classList.add('modal');
-// create close button within the modal //
+  // create close button within the modal //
      let closeButtonElement = document.createElement('button');
      closeButtonElement.classList.add('modal-close');
      closeButtonElement.innerText = 'Close';
- // listen for the click of the close button, then execute hideModal function //
+   // listen for the click of the close button, then execute hideModal function //
      closeButtonElement.addEventListener('click', hideModal);
-// create the title element of h1 with the text "title" //
+   // create the title element of h1 with the text "title" //
      let titleElement = document.createElement('h1');
      titleElement.innerText = title;
-// create paragraph element with the text "text" //
+   // create paragraph element with the text "text" //
      let contentElement = document.createElement('p');
      contentElement.innerText = text;
 
@@ -92,7 +93,7 @@ let pokemonRepository = (function (){
      modal.appendChild(contentElement);
      modalContainer.appendChild(modal);
 
- // add the class is-visible to modalContainer variable //
+   // add the class is-visible to modalContainer variable //
       modalContainer.classList.add('is-visible');
    }
 
