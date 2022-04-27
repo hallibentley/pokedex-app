@@ -67,9 +67,6 @@ let pokemonRepository = (function (){
      });
    }
 
-////////////////////////////////////////////////////////////////////////////
-
-
    function showModal(pokemon) {
      modalContainer.innerHTML = '';
    // create div with a class called modal //
@@ -133,13 +130,6 @@ let pokemonRepository = (function (){
       hideModal();
     }
   });
-
-
-  // document.querySelector('#show-modal').addEventListener('click', () => {
-  //   showModal('Modal title', 'This is the modal content!');
-  // });
-
-//////////////////////////////////////////////////////////////////////////////
 
   return {
 
