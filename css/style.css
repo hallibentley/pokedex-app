@@ -15,12 +15,13 @@
 }
 
 .modal-content {
-
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .group-list-item {
   margin: 0;
   padding: 10px 0;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .btn {
