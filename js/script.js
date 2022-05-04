@@ -78,11 +78,24 @@ function addListItem(pokemon) {
      modalTitle.empty();
      modalBody.empty();
 
+//iterating over the multiple types, creating "typeString" to be used in "typeElement"//
+     let typeString = ''
+        for (let i = 0; i < pokemon.types.length; i++) {
+            if (i !== pokemon.types.length-1) {
+                typeString+=pokemon.types[i].type.name + ", "
+            }
+            else {
+                typeString+= pokemon.types[i].type.name
+            }
+        };
+
+
      let titleElement = $("<h1>" + pokemon.name + "</h1>");
-     let heightElement = $("<p>" + "Height :" + pokemon.height + "</p>");
-     let typeElement = $("<p>" + "Types :" + pokemon.types + "</p>");
+     let heightElement = $("<p>" + "Height : " + pokemon.height + "</p>");
+     let typeElement = $("<p>" + "Types : " + typeString + "</p>");
      let imageElementFront = $('<img class="modal-image" style="width:50%">')
         imageElementFront.attr("src", pokemon.imageUrl);
+
 
       modalTitle.append(titleElement);
       modalBody.append(heightElement);
@@ -100,8 +113,8 @@ function addListItem(pokemon) {
         showModal : showModal,
       };
 
-    // closing the IIFE //
-  })();
+// closing the IIFE //
+})();
 
     pokemonRepository.loadList().then(function() {
       pokemonRepository.getAll().forEach(function(pokemon) {
@@ -131,15 +144,7 @@ function addListItem(pokemon) {
     //    typeElement.innerText = ('Types:');
 
     //
-    //  pokemon.types.forEach((type, numberOfTypes) => {
- 		// 	numberOfTypes = pokemon.types;
-    //
- 		// 	if (numberOfTypes === 1) {
- 		// 		typeElement.innerText += type.name;
- 		// 	} else {
- 		// 		typeElement.innerText += type.name + ' ';
- 		// 	}
- 		// });
+
     //
     // let imageElement = document.createElement('img');
     // imageElement.classList.add('modal-image');
